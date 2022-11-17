@@ -17,7 +17,8 @@ class LtsmEnabledOrDisabledView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               /*
               ? Buat variabel enabled di dalam State/Controller
               ! bool enabled = false;
@@ -42,6 +43,27 @@ class LtsmEnabledOrDisabledView extends StatefulWidget {
               */
                 
               */
+
+              ElevatedButton.icon(
+                icon: const Icon(Icons.add),
+                label: const Text("Add"),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      controller.isEnable ? Colors.orange : Colors.grey,
+                ),
+                onPressed: () {
+                  if (controller.isEnable == false) return;
+                },
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    controller.isEnable = !controller.isEnable;
+                    controller.setState(() {});
+                  },
+                  child: const Text('Check Enable / Disable'))
             ],
           ),
         ),

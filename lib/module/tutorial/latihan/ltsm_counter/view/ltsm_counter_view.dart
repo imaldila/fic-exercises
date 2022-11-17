@@ -17,7 +17,7 @@ class LtsmCounterView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
               /*
               ? 1. ambil variabel counter, tampilkan ke dalam text
               ! controller.counter lalu tampilkan di dalam Text("")
@@ -26,6 +26,23 @@ class LtsmCounterView extends StatefulWidget {
               ! ketika di klik, panggil fungsi updateCounter()
               ! contoh: controller.updateCounter();
               */
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () => controller.decreaseCounter(),
+                    icon: const Icon(Icons.remove),
+                    label: const Text('Decrement'),
+                  ),
+                  Text('${controller.counter}'),
+                  ElevatedButton.icon(
+                    onPressed: () => controller.updateCounter(),
+                    icon: const Icon(Icons.add),
+                    label: const Text('Increment'),
+                  ),
+                ],
+              )
             ],
           ),
         ),

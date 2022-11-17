@@ -7,6 +7,8 @@ class LtsmLoadingController extends State<LtsmLoadingView>
   static late LtsmLoadingController instance;
   late LtsmLoadingView view;
 
+  bool isLoading = false;
+
   @override
   void initState() {
     instance = this;

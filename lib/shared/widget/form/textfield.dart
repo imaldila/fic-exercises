@@ -36,7 +36,7 @@ class _QTextFieldState extends State<QTextField> {
       initialValue: widget.value,
       validator: widget.validator,
       maxLength: 20,
-      maxLines: widget.maxLines,
+      maxLines: widget.maxLines ?? 1,
       obscureText: widget.obscure,
       decoration: InputDecoration(
         labelText: widget.label,

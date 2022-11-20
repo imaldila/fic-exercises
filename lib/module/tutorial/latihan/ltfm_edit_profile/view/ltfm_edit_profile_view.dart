@@ -10,7 +10,14 @@ class LtfmEditProfileView extends StatefulWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("LtfmEditProfile"),
-        actions: const [
+        actions: [
+          IconButton(
+            padding: const EdgeInsets.all(10),
+            onPressed: () => controller.save(),
+            icon: const Icon(
+              Icons.save,
+            ),
+          ),
           //! 4. Tambahkan tombol Save
           //! 5. Beri padding/margin pada tombol Save sebanyak 10
           //! 6. Panggil controller.save() ketika tombol di klik

@@ -10,7 +10,14 @@ class LtfmProductFormView extends StatefulWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("LtfmProductForm"),
-        actions: const [
+        actions: [
+          IconButton(
+            padding: const EdgeInsets.all(10),
+            onPressed: () => controller.save(),
+            icon: const Icon(
+              Icons.save,
+            ),
+          ),
           //! 5. Tambahkan tombol Save
           //! 6. Beri padding/margin pada tombol Save sebanyak 10
           //! 7. Panggil controller.save() ketika tombol di klik
@@ -20,10 +27,67 @@ class LtfmProductFormView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
               //! 1. Buat sebuah Card, tambahkan Column di dalamnya
               //! 2. Tambahkan padding.all 20.0
               //! 3. Di dalam column yang ada di dalam Card, tambahkan field ini:
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      QTextField(
+                        label: 'Product Name',
+                        onChanged: (v) {},
+                      ),
+                      QTextField(
+                        label: 'Price',
+                        onChanged: (v) {},
+                      ),
+                      QTextField(
+                        label: 'Description',
+                        onChanged: (v) {},
+                        maxLines: 15,
+                      ),
+                      QDropdownField(
+                        label: "Category",
+                        hint: "Your product category",
+                        validator: Validator.required,
+                        items: const [
+                          {
+                            "label": "Food",
+                            "value": 1,
+                          },
+                          {
+                            "label": "Drink",
+                            "value": 2,
+                          },
+                          {
+                            "label": "Main Course",
+                            "value": 3,
+                          }
+                        ],
+                        onChanged: (value, label) {},
+                      ),
+                      QRadioField(
+                        label: "Status",
+                        validator: Validator.atLeastOneitem,
+                        items: const [
+                          {
+                            "label": "Published",
+                            "value": "published",
+                          },
+                          {
+                            "label": "Draft",
+                            "value": "draft",
+                          }
+                        ],
+                        onChanged: (value, label) {},
+                      ),
+                    ],
+                  ),
+                ),
+              )
               //? textfield product name
               //? textfield price (hanya bisa menerima angka)
               //? textfield description (textfield dengan maxlines: 15)

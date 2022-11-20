@@ -29,7 +29,29 @@ class LtfmReviewFormView extends StatefulWidget {
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: ListBody(
-                            children: const <Widget>[
+                            children: <Widget>[
+                              QTextField(
+                                label: 'Review',
+                                onChanged: (v) {},
+                              ),
+                              RatingBar.builder(
+                                initialRating: 2.0,
+                                minRating: 1,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                itemSize: 28.0,
+                                itemBuilder: (context, _) => const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                onRatingUpdate: (rating) {},
+                              ),
+                              const SizedBox(height: 30),
+                              ElevatedButton(
+                                onPressed: () => Navigator.pop(context),
+                                child: const Text('Review'),
+                              ),
                               //! 6. Pindahkan textarea review, ratingbar, dan tombol review
                               //!    yang berada di bawah ke dalam sini (di dalam children)
                               //! 7. Test fitur ini dengan klik tombol Rate di pojok kanan atas
@@ -54,6 +76,7 @@ class LtfmReviewFormView extends StatefulWidget {
             children: const [
               //! 1. Buat sebuah textarea "Review"
               //! 2. Tambahkan ratingbar setelah textarea review, gunakan kode ini:
+
               /*
               RatingBar.builder(
                 initialRating: 2.0,

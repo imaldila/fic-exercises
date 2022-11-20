@@ -20,8 +20,26 @@ class LtfmEditProfileView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
               //! 1. Buat sebuah Card, tambahkan Column di dalamnya
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      QTextField(
+                        label: 'Email',
+                        onChanged: (v) {},
+                      ),
+                      QTextField(
+                        label: 'Password',
+                        obscure: true,
+                        onChanged: (v) {},
+                      ),
+                    ],
+                  ),
+                ),
+              )
               //! 2. Tambahkan padding.all 20.0
               //! 3. Di dalam column yang ada di dalam Card, tambahkan field ini:
               //? textfield email
